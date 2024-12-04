@@ -1,0 +1,70 @@
+.header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 7rem;
+    align-items: center;
+    background: transparent;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+  }
+  .header button {
+    margin: 0 0.1rem;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    padding: 1.5rem ;
+    height: 100%;
+    width: 9rem;
+    cursor: pointer;
+  }
+  .header button.activeButton{
+      background-color: black;
+      border-radius: 12px;
+      border: transparent;
+      
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      background-color: rgba(129, 200, 228, 0.596);
+      height: 5.5rem;
+      font-size: 18px;
+    }
+    .LogoContainer
+    {
+      height: 100%;
+      background-color: aliceblue;
+      width: 23%;
+    }
+ 
+  }
+  
+  @media (min-width: 769px) {
+    .header {
+      font-size: 20px; 
+      background-color: rgba(209, 226, 50, 0.418);
+    }
+    .LogoContainer
+    {
+      height: 70%;
+     margin-left: 10%;
+      background-color: aliceblue;
+      width: 10rem;
+    }
+    .header ul 
+    {
+      display: flex;
+      height: 100%;
+      margin-left:4.9%
+    };
+ 
+ 
+  }
+  
+
+
+
+
+  
