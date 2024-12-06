@@ -32,31 +32,35 @@ const Header = ({ currentSlide, onButtonClick }) => {
       {isDesktop && (
         <ul className={styles.ButtonContainer}>
           <button
-            className={currentSlide === 0 ? styles.activeButton : ''}
+            className={currentSlide === 0 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(0)}
           >
             Home
           </button>
           <button
-            className={currentSlide === 1 ? styles.activeButton : ''}
+            className={currentSlide === 1 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(1)}
           >
             Character Information
           </button>
           <button
-            className={currentSlide === 2 ? styles.activeButton : ''}
+            className={currentSlide === 2 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(2)}
           >
             Game Content
           </button>
           <button
-            className={currentSlide === 3 ? styles.activeButton : ''}
+            className={currentSlide === 3 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(3)}
           >
             Token Information
           </button>
         </ul>
       )}
+      <ul className={styles.leftButtonContainer}>
+        <button className={styles.leftButton}> Download </button>
+        <button className={styles.leftButton}> Contact </button>
+      </ul>
     </header>
   );
 };

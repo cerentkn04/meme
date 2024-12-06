@@ -40,10 +40,10 @@ export default function Page({ currentSlide, setCurrentSlide }) {
         onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}  // Set current slide on slide change
         ref={swiperRef}
       >
-        <SwiperSlide className={styles.slide1}>Slide 1</SwiperSlide>
-        <SwiperSlide className={styles.slide2}>Slide 2</SwiperSlide>
-        <SwiperSlide className={styles.slide3}>Slide 3</SwiperSlide>
-        <SwiperSlide className={styles.slide4}>Slide 4</SwiperSlide>
+        <SwiperSlide className={styles.slide1}></SwiperSlide>
+        <SwiperSlide className={styles.slide2}></SwiperSlide>
+        <SwiperSlide className={styles.slide3}></SwiperSlide>
+        <SwiperSlide className={styles.slide4}></SwiperSlide>
       </Swiper>
     </>
   );
