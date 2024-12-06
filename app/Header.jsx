@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './header.module.css';
+import Image from 'next/image';
 
 const Header = ({ currentSlide, onButtonClick }) => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -19,9 +20,15 @@ const Header = ({ currentSlide, onButtonClick }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.LogoContainer}>
-        LOGO
-      </div>
+    
+        <Image 
+          src="/logo.png" 
+          alt="Company Logo" 
+          width={250} 
+          height={40} 
+          className={styles.Logo}
+        />
+ 
       {isDesktop && (
         <ul className={styles.ButtonContainer}>
           <button

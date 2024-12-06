@@ -25,6 +25,12 @@
       border: transparent;
       
   }
+  .Logo
+  {
+    width: 15rem;
+    padding: 0;
+    margin: 0;
+  }
   
   @media (max-width: 768px) {
     .header {
@@ -46,13 +52,7 @@
       font-size: 20px; 
       background-color: rgba(209, 226, 50, 0.418);
     }
-    .LogoContainer
-    {
-      height: 70%;
-     margin-left: 10%;
-      background-color: aliceblue;
-      width: 10rem;
-    }
+
     .header ul 
     {
       display: flex;
