@@ -1,0 +1,39 @@
+
+
+.slide2
+{
+    position: relative; 
+
+}
+.characterInfoBox
+{   display: flex;
+    justify-content: center;
+    position: absolute; 
+    border: 2px pink solid;
+    max-width: 20vw;
+    max-height: 50vh;
+    left: 5%;
+    top:30%;
+}
+
+
+
+.slide2 ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap:1rem;
+    position: absolute; 
+    top: 30%; 
+    right: 10%; 
+    display: flex;
+    flex-direction: column; 
+}
+.characterButton
+{ 
+    width: 5vw;
+    height: 5vw;
+    border: 2px black solid;
+    padding: 10px;
+}

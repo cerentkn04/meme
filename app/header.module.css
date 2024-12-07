@@ -1,28 +1,34 @@
+
 .header {
     position: fixed;
     display: flex;
-    top: 0;
+    padding: 0%;
+    margin: 0%;
     width: 100%;
-    height: 7rem;
+    height: 7vw;
     align-items: center;
     background: transparent;
     transition: background-color 0.3s ease;
     z-index: 100;
   }
-  .pageButton {
-    margin: 0 0.1rem;
+
+  .pageButton 
+  { 
+    font-size: medium;
     color: white;
     background: none;
     border: 1px solid white;
-    padding: 1.5rem ;
-    height: 100%;
+    padding: auto;
+    max-height: 100%;
     width: 9rem;
+    max-width: 9rem;
     cursor: pointer;
   }
   
   .header button.activeButton{
-      padding: 1.5rem ;
       margin: 0 0.1rem;
+      padding: auto;
+      font-size: medium;
       width: 9rem;
       height: 100%;
       background-color: black;
@@ -30,71 +36,86 @@
       border: transparent;
       
   }
-  .leftButtonContainer
-  {
-    display: flex;
-  }
- 
 
-  
-  @media (max-width: 768px) {
-    .header {
-      background-color: rgba(49, 67, 74, 0.596);
+  @media (max-width: 1063px) {
+    .header 
+    { 
+      width: 100%;
+      display: flex;
+      align-items:center;
+      background-color: rgba(77, 119, 87, 0.418);
       height: 5.5rem;
-      font-size: 18px;
+    
     }
     .Logo
-    {
-      margin:0%;
-      padding: 0%;
-      height: 100%;
+    { 
+      height: 90%;
+      margin-left: 8% ;
       width: auto;
-      
+    }
+    .leftButtonContainer
+    {
+  
+      margin-right: 1rem;
+      display: flex;
+      align-items: center; 
+      gap: 1rem; 
+      position: relative;
     }
     .leftButton
     {
-      margin:3%;
       padding: 3%;
-      padding-inline: 5%;
-      font-size: 18px;
+      margin-left: auto;
+      font-size: medium;
       border: 2px black solid;
       border-radius: 18px;
     }
  
   }
   
-  @media (min-width: 769px) 
+  @media (min-width: 1064px) 
   {
     .header {
       font-size: 20px; 
       background-color: rgba(199, 24, 129, 0.418);
     }
     .Logo
-    {
-      margin-left: 4rem;
-      height: 100%;
+    { 
+      padding: 0%;
+      margin-left: auto ;
+      margin-left: 5rem;
+      height: 90%;
       width: auto;
     }
-
-    .header ul 
+  
+    .ButtonContainer
     {
       display: flex;
       height: 100%;
-      margin-left:4.9%
+      width: auto;
+      margin-left: 7vw;
+      
     }
     .leftButtonContainer
     {
+      margin-left: auto;
+      margin-right: 3rem; 
+      max-width: 400px;
+      display: flex;
+      align-items: center; 
+      gap: 2vw; 
       position: relative;
     }
 
     .leftButton
     {
-      margin: 2rem;
+      font-size: 1.7vw;
+      width: auto;
       padding-inline: 1rem;
       border: 2px black solid;
+      border-radius: 12rem;
     }
- 
- 
+
   }
   
 

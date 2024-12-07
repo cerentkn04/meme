@@ -5,6 +5,7 @@ import { Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./page.module.css";
+import Slide2 from "./slides/slide2"
 
 export default function Page({ currentSlide, setCurrentSlide }) {
   const swiperRef = useRef(null);
@@ -40,8 +41,14 @@ export default function Page({ currentSlide, setCurrentSlide }) {
         onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}  // Set current slide on slide change
         ref={swiperRef}
       >
-        <SwiperSlide className={styles.slide1}></SwiperSlide>
-        <SwiperSlide className={styles.slide2}></SwiperSlide>
+        <SwiperSlide className={styles.slide1}> </SwiperSlide>
+        <SwiperSlide className={styles.slide2}>   
+
+        <div className={styles.backgroundImage}>
+          <img src="./testbackg.gif" alt="Background" />
+        </div>
+           <Slide2/>
+        </SwiperSlide>
         <SwiperSlide className={styles.slide3}></SwiperSlide>
         <SwiperSlide className={styles.slide4}></SwiperSlide>
       </Swiper>
