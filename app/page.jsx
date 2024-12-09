@@ -30,28 +30,25 @@ export default function Page({ currentSlide, setCurrentSlide }) {
 
   return (
     <>
-      <Swiper
-        direction={"vertical"}
-        slidesPerView={1}
-        spaceBetween={0}
-        mousewheel={true}
-        modules={[Mousewheel, Pagination]}
-        className="mySwiper"
-        style={swiperStyle}
-        onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}  // Set current slide on slide change
-        ref={swiperRef}
-      >
-        <SwiperSlide className={styles.slide1}> </SwiperSlide>
-        <SwiperSlide className={styles.slide2}>   
-
-        <div className={styles.backgroundImage}>
-          <img src="./testbackg.gif" alt="Background" />
-        </div>
-           <Slide2/>
-        </SwiperSlide>
-        <SwiperSlide className={styles.slide3}></SwiperSlide>
-        <SwiperSlide className={styles.slide4}></SwiperSlide>
-      </Swiper>
+        <Swiper
+          direction={"vertical"}
+          slidesPerView={1}
+          spaceBetween={0}
+          mousewheel={{
+            releaseOnEdges: true, // Allow Swiper to release control at edges
+            sensitivity: 1,       // Adjust sensitivity if needed
+          }}
+          modules={[Mousewheel, Pagination]}
+          className="mySwiper"
+          ref={swiperRef}
+        >
+          <SwiperSlide className={styles.slide1}></SwiperSlide>
+          <SwiperSlide className={styles.slide2}>
+            <Slide2 />
+          </SwiperSlide>
+          <SwiperSlide className={styles.slide3}></SwiperSlide>
+          <SwiperSlide className={styles.slide4}></SwiperSlide>
+        </Swiper>
     </>
   );
 }

@@ -1,9 +1,6 @@
-
-
 .slide2
 {
     position: relative; 
-
 }
 .characterInfoBox
 {   display: flex;
@@ -15,25 +12,47 @@
     left: 5%;
     top:30%;
 }
-
-
-
-.slide2 ul
-{
+.slide2 ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap:1rem;
-    position: absolute; 
-    top: 30%; 
-    right: 10%; 
-    display: flex;
-    flex-direction: column; 
+    gap: 1rem;
+    position: absolute;
+    top: 23%;
+    right: 9%;
+    width: 13%;
+    max-height: 65%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
+
+.slide2 ul::-webkit-scrollbar {
+    display: none; 
+}
+.characterButton 
+{
+    width: 80%; 
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .characterButton:nth-child(odd) {
+    margin-left: auto; 
+  }
+  
+  .characterButton:nth-child(even) {
+    margin-right: auto; 
+  }
 .characterButton
 { 
-    width: 5vw;
-    height: 5vw;
+    width: 4vw;
+    height: 6vw;
     border: 2px black solid;
     padding: 10px;
 }

@@ -14,14 +14,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1; /* Ensure the background image is behind the content */
+  z-index: -1; 
   display: block;
 }
 
 .backgroundImage img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the gif fills the entire area */
+  object-fit: cover; 
 }
 
 .slide2 {
