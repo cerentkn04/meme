@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styles from "./slide2.module.css";
 import characters from "../Data/characters";
-import { useDragScroll } from "../hooks/useDragScroll";
+import useWindowSize from "../Hooks/useWindowSize";
 
 const Slide2 = () => {
+  const isDesktop = useWindowSize();
   const [activeCharacter, setActiveCharacter] = useState(null);
-  const { containerRef, attachListeners } = useDragScroll();
 
   const uiElement = () => {
     if (!activeCharacter) {
-      return <div>Select a character to see details.</div>;
+      return <div></div>;
     }
 
     return (
@@ -21,13 +21,18 @@ const Slide2 = () => {
   };
 
   return (
-    <div className={styles.slide2}>
-      <div className={styles.characterInfoBox}>{uiElement()}</div>
-      <ul
+    <div className={styles.slide2}> 
+      {isDesktop && (
+        <div className={styles.characterInfoBox}>{uiElement()} </div> ) 
+      }
+      <div
         className={styles.scrollableList}
-        ref={containerRef}
-        {...attachListeners()} // Attach the drag scroll listeners
-        onWheel={(e) => e.stopPropagation()} // Prevent Swiper from intercepting the wheel event
+        onMouseEnter={() => {
+          document.querySelector(".mySwiper").swiper.mousewheel.disable();
+        }}
+        onMouseLeave={() => {
+          document.querySelector(".mySwiper").swiper.mousewheel.enable();
+        }}
       >
         {characters.map((character, index) => (
           <button
@@ -38,7 +43,7 @@ const Slide2 = () => {
             {character.name}
           </button>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

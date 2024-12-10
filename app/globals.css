@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -26,8 +26,6 @@ body {
   width: 100vw;
   margin: 0;
 }
-
-
 
 
 div {

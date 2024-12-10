@@ -10,19 +10,20 @@ export const useDragScroll = () => {
     isDragging.current = true;
     startY.current = e.clientY;
     scrollTop.current = containerRef.current.scrollTop;
-    e.stopPropagation(); // Prevent Swiper from handling the event
+    e.stopPropagation();
   };
-
+  
   const onMouseMove = (e) => {
     if (!isDragging.current) return;
     const dy = e.clientY - startY.current;
     containerRef.current.scrollTop = scrollTop.current - dy;
-    e.stopPropagation(); // Prevent Swiper from handling the event
+    e.preventDefault(); 
+    e.stopPropagation();
   };
-
+  
   const onMouseUp = (e) => {
     isDragging.current = false;
-    e.stopPropagation(); // Prevent Swiper from handling the event
+    e.stopPropagation();
   };
 
   const attachListeners = () => ({

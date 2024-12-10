@@ -9,7 +9,7 @@ const Layout = () => {
 
   const handleButtonClick = (slideIndex) => {
     setCurrentSlide(slideIndex);
-    console.log(slideIndex);  // This will log the updated index
+
   };
 
   return (
@@ -19,7 +19,7 @@ const Layout = () => {
       </head>
       <body>
         <Header currentSlide={currentSlide} onButtonClick={handleButtonClick} />
-        <Page currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} style={{ width: "100%" }} />
+        <Page currentSlide={currentSlide} setCurrentSlide={setCurrentSlide}  />
       </body>
     </html>
   );

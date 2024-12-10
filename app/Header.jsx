@@ -1,33 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './header.module.css';
-
+import useWindowSize from './Hooks/useWindowSize';
 
 const Header = ({ currentSlide, onButtonClick }) => {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1064);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isDesktop = useWindowSize(); 
 
   return (
     <header className={styles.header}>
-    
-        <img 
-          src="/logo.png" 
-          alt="Game Logo" 
-          width={250} 
-          height={70} 
-          className={styles.Logo}
-        />
+      <img 
+        src="/logo.png" 
+        alt="Game Logo" 
+        width={250} 
+        height={70} 
+        className={styles.Logo}
+      />
       {isDesktop && (
         <ul className={styles.ButtonContainer}>
           <button

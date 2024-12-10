@@ -2,17 +2,65 @@
 {
     position: relative; 
 }
-.characterInfoBox
-{   display: flex;
-    justify-content: center;
-    position: absolute; 
-    border: 2px pink solid;
-    max-width: 20vw;
-    max-height: 50vh;
-    left: 5%;
-    top:30%;
+.characterButton
+{   
+    text-align: center;
+    color: black;
+    width: 4vw;
+    height: 6vw;
+    border: 2px black solid;
+    padding: 10%;
 }
-.slide2 ul {
+
+
+
+.scrollableList::-webkit-scrollbar {
+    display: none; 
+}
+@media (max-width:  999px)
+{
+  .slide2
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scrollableList {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    position: absolute;
+    bottom: 5%;
+    width: 80%;
+    max-height: 30%;
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    white-space: nowrap; 
+    padding: 10px;
+    scrollbar-width: none; 
+  }
+
+
+  .scrollableList::-webkit-scrollbar {
+    height: 8px; 
+  }
+  .scrollableList::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 10px;
+  }
+  .scrollableList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+}
+@media (min-width: 1000px) 
+{
+  .scrollableList
+    {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,29 +78,30 @@
     padding: 10px;
     scrollbar-width: none; 
     -ms-overflow-style: none; 
-}
+    }
+    .characterInfoBox
+    {   display: flex;
+        color:black;
+        justify-content: center;
+        position: absolute; 
+        border: 2px pink solid;
+        max-width: 20vw;
+        max-height: 50vh;
+        left: 5%;
+        top:30%;
+    }
+    .characterDetails
+    {
+      display: flex;
+      flex-direction: column;
+      
+    }
 
-.slide2 ul::-webkit-scrollbar {
-    display: none; 
-}
-.characterButton 
-{
-    width: 80%; 
-    padding: 10px;
-    text-align: center;
-  }
-  
   .characterButton:nth-child(odd) {
     margin-left: auto; 
   }
   
   .characterButton:nth-child(even) {
     margin-right: auto; 
-  }
-.characterButton
-{ 
-    width: 4vw;
-    height: 6vw;
-    border: 2px black solid;
-    padding: 10px;
+  } 
 }
