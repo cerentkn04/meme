@@ -97,6 +97,13 @@
       
     }
 
+    .gltfScene{
+      width: 300px;
+      height: auto;
+    }
+
+
+
   .characterButton:nth-child(odd) {
     margin-left: auto; 
   }
