@@ -40,9 +40,8 @@ const Slide3 = () => {
             <h3> {activeVid.name}</h3>
             <img  src={activeVid.gifPath} width="100%" height="auto" controls className={styles.levelVid}/>
             </>
-            
           )}
-          {!isDesktop && <div>Mobile Version</div>} {/* Add your mobile version here */}
+          {!isDesktop && <div>Mobile Version</div>} 
         </div>
       </div>
     </>

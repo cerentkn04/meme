@@ -1,12 +1,12 @@
 const characters = [
-    { name: "C1", health: 100 },
-    { name: "C2", health: 120 },
-    { name: "C3", health: 90 },
-    { name: "C4", health: 110 },
-    { name: "C5", health: 80 },
-    { name: "C6", health: 105 },
-    { name: "C7", health: 95 },
-    { name: "C8", health: 130 },
+    { name: "kishimo", health: 100 , Anim: '/AnimC1.gltf'},
+    { name: "dogera", health: 120 , Anim: '/AnimC2.gltf'},
+    { name: "shibanobi", health: 90 , Anim: '/AnimC3.gltf'},
+    { name: "", health: 110 , Anim: '/AnimC4.gltf'},
+    { name: "C5", health: 80, Anim: '/AnimC5.gltf' },
+    { name: "C6", health: 105 , Anim: '/AnimC6.gltf'},
+    { name: "C7", health: 95 , Anim: '/AnimC7.gltf'},
+    { name: "C8", health: 130 , Anim: '/AnimC8s.gltf'},
   ];
   
   export default characters;

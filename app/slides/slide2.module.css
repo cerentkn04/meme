@@ -1,7 +1,13 @@
+
+
 .slide2
-{
+  {
     position: relative; 
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 .characterButton
 {   
     text-align: center;
@@ -12,50 +18,51 @@
     padding: 10%;
 }
 
+.scrollableList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  position: absolute;
+  bottom: 5%;
+  width: 80%;
+  max-height: 30%;
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  white-space: nowrap; 
+  padding: 10px;
+  scrollbar-width: none; 
+}
+
+
+.scrollableList::-webkit-scrollbar {
+  height: 8px; 
+}
+.scrollableList::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 10px;
+}
+.scrollableList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
 
 .scrollableList::-webkit-scrollbar {
     display: none; 
 }
-@media (max-width:  999px)
+@media (max-width: 767px)
 {
-  .slide2
-  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .scrollableList {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem;
-    position: absolute;
-    bottom: 5%;
-    width: 80%;
-    max-height: 30%;
-    overflow-x: auto; 
-    overflow-y: hidden; 
-    white-space: nowrap; 
-    padding: 10px;
-    scrollbar-width: none; 
-  }
-
-
-  .scrollableList::-webkit-scrollbar {
-    height: 8px; 
-  }
-  .scrollableList::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    border-radius: 10px;
-  }
-  .scrollableList::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
   
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  
+
+
+
 }
 @media (min-width: 1000px) 
 {
@@ -100,6 +107,11 @@
     .gltfScene{
       width: 300px;
       height: auto;
+    }
+    .Anim{
+      position: relative;
+      top: 25%;
+      height: 80%;
     }
 
 

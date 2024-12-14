@@ -3,13 +3,15 @@ import React, { useState } from "react";
 import styles from "./slide2.module.css";
 import characters from "../Data/characters";
 import useWindowSize from "../Hooks/useWindowSize";
+import dynamic from "next/dynamic";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
-import dynamic from 'next/dynamic';
+const AnimatedModel = dynamic(() => import("./AnimatedModel"), { ssr: false });
 
-const ThreeScene = dynamic(() => import('./threeScene'), { ssr: false });
 const Slide2 = () => {
   const isDesktop = useWindowSize();
-  const [activeCharacter, setActiveCharacter] = useState(null);
+  const [activeCharacter, setActiveCharacter] = useState(characters[0]);
 
   const uiElement = () => {
     if (!activeCharacter) {
@@ -24,22 +26,46 @@ const Slide2 = () => {
     );
   };
 
+  const handleMouseEnter = () => {
+    const swiperInstance = document.querySelector(".mySwiper")?.swiper;
+    swiperInstance?.mousewheel.disable();
+  };
+
+  const handleMouseLeave = () => {
+    const swiperInstance = document.querySelector(".mySwiper")?.swiper;
+    swiperInstance?.mousewheel.enable();
+  };
+
   return (
-    <div className={styles.slide2}> 
-      {isDesktop && (
-        <div className={styles.characterInfoBox}>{uiElement()} </div> ) 
+    <div className={styles.slide2}>
+      {isDesktop && 
+         <>
+                 <div className={styles.characterInfoBox}>{uiElement()}</div>
+                 <div className={styles.threeCanvas}>
+                  <Canvas className={styles.Anim}   camera={{
+                    position: [0,20, 10],
+                    fov: 50,
+                    near: 0.1,
+                    far: 1000,
+                  }} >
+                    <ambientLight intensity={0.5} />
+                    <AnimatedModel AimationURL = {activeCharacter.Anim}  />
+                    <OrbitControls 
+                      enableZoom={false}  
+                      enablePan={false}        
+                      enableRotate={true}        
+                      maxPolarAngle={Math.PI / 2} 
+                      minPolarAngle={Math.PI / 2}
+                      rotateSpeed={0.5}         
+                    />
+                  </Canvas>
+                </div>
+         </>
       }
-       <div style={{ width: '100vw', height: '100vh' }}>
-      <ThreeScene />
-    </div>
       <div
         className={styles.scrollableList}
-        onMouseEnter={() => {
-          document.querySelector(".mySwiper").swiper.mousewheel.disable();
-        }}
-        onMouseLeave={() => {
-          document.querySelector(".mySwiper").swiper.mousewheel.enable();
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {characters.map((character, index) => (
           <button

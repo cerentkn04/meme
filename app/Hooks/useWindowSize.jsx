@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 
 const useWindowSize = () => {
   const [isDesktop, setIsDesktop] = useState(false);
+  const [ isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
   
     if (typeof window !== 'undefined') {
       const handleResize = () => {
-        setIsDesktop(window.innerWidth >= 1000);
+        setIsDesktop(window.innerWidth >= 950);
+        setIsTablet(window.innerWidth )
       };
 
       handleResize(); 

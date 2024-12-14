@@ -9,7 +9,6 @@ const Layout = () => {
 
   const handleButtonClick = (slideIndex) => {
     setCurrentSlide(slideIndex);
-
   };
 
   return (

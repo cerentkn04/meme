@@ -6,75 +6,124 @@
     justify-content: center;
     gap: 2rem;
 }
-.leftContainer
+@media (max-width:  999px)
 {
-   
-    position: relative;
-    top: 3%;
-    max-height: 68%;  
-    height: 100%;     
-    max-width: 20%;
-    right: 2%;
-    display: flex;
-    flex-direction: column;
+    .Slide3{
+        display: flex;
+        flex-direction:column-reverse;
+
+    }
+    .leftContainer
+    {
+        position: relative;
+        border: #fdfdfd 2px solid;
+        max-height: 20%;  
+        max-width: 90%;
+        top: 3%;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .levelsContainer {
+        position: relative;
+       
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+    }
+
+    .level {
+        position: relative;
+        max-height: 40%;
+        max-width: 80%;
+        background: transparent;
+        border: 3px #c83e4d solid;
+        
+    }
 
 }
-.leftContainerHead
+
+@media (min-width:  1000px)
 {
-    margin: 0%;
-    max-height:14% ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.levelsContainer {
-    position: relative;
-    max-height: 85%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    overflow-y: auto;
-    overflow-x: hidden;
-   
-}
-.levelsContainer::-webkit-scrollbar {
-    display: none; /* Hides the scrollbar */
-}
+    .leftContainer
+    {
+        position: relative;
+        top: 3%;
+        max-height: 68%;  
+        height: 100%;     
+        max-width: 20%;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .leftContainerHead
+    {
+        margin: 0%;
+        max-height:14% ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .levelsContainer {
+        position: relative;
+        max-height: 85%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+    }
+    .levelsContainer::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+    }
 
 
-.levelButton {
-    border: 2px black solid;
-    width: 80%;
-    height: 32%;
-    margin-block: 2rem;
-    flex-shrink: 0;
-    flex-grow: 0; 
-}
+    .levelButton {
+        border: 2px black solid;
+        width: 80%;
+        height: 32%;
+        margin-block: 2rem;
+        flex-shrink: 0;
+        flex-grow: 0; 
+    }
+    .level {
+        position: relative;
+        top: 3%;
+        right: 1%;
+        max-width: 50%;
+        max-height: 68%;
+        background: transparent;
+        border: 3px #c83e4d solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:2rem;
+    }
+    
+    .levelVid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: brown;
+        position: relative;
+        max-width: 90%;
+        max-height: 80%;
+    }
+    
 
-.level {
-    position: relative;
-    top: 3%;
-    right: 1%;
-    max-width: 50%;
-    max-height: 68%;
-    background: transparent;
-    border: 3px #c83e4d solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap:2rem;
-}
-
-.levelVid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: brown;
-    position: relative;
-    max-width: 90%;
-    max-height: 80%;
 }
