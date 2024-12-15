@@ -9,7 +9,7 @@ const useWindowSize = () => {
     if (typeof window !== 'undefined') {
       const handleResize = () => {
         setIsDesktop(window.innerWidth >= 950);
-        setIsTablet(window.innerWidth )
+        setIsTablet( window.innerWidth <950 && window.innerWidth >= 768)
       };
 
       handleResize(); 
@@ -21,7 +21,7 @@ const useWindowSize = () => {
     }
   }, []);
 
-  return isDesktop;
+  return { isDesktop, isTablet };
 };
 
 export default useWindowSize;

@@ -10,8 +10,8 @@ import { OrbitControls } from "@react-three/drei";
 const AnimatedModel = dynamic(() => import("./AnimatedModel"), { ssr: false });
 
 const Slide2 = () => {
-  const isDesktop = useWindowSize();
-  const [activeCharacter, setActiveCharacter] = useState(characters[0]);
+  const { isDesktop, isTablet } = useWindowSize();
+  const [activeCharacter, setActiveCharacter] = useState(characters[0] || {});
 
   const uiElement = () => {
     if (!activeCharacter) {
@@ -28,40 +28,44 @@ const Slide2 = () => {
 
   const handleMouseEnter = () => {
     const swiperInstance = document.querySelector(".mySwiper")?.swiper;
-    swiperInstance?.mousewheel.disable();
+    swiperInstance?.mousewheel?.disable?.();
   };
 
   const handleMouseLeave = () => {
     const swiperInstance = document.querySelector(".mySwiper")?.swiper;
-    swiperInstance?.mousewheel.enable();
+    swiperInstance?.mousewheel?.enable?.();
   };
 
   return (
     <div className={styles.slide2}>
-      {isDesktop && 
-         <>
-                 <div className={styles.characterInfoBox}>{uiElement()}</div>
-                 <div className={styles.threeCanvas}>
-                  <Canvas className={styles.Anim}   camera={{
-                    position: [0,20, 10],
-                    fov: 50,
-                    near: 0.1,
-                    far: 1000,
-                  }} >
-                    <ambientLight intensity={0.5} />
-                    <AnimatedModel AimationURL = {activeCharacter.Anim}  />
-                    <OrbitControls 
-                      enableZoom={false}  
-                      enablePan={false}        
-                      enableRotate={true}        
-                      maxPolarAngle={Math.PI / 2} 
-                      minPolarAngle={Math.PI / 2}
-                      rotateSpeed={0.5}         
-                    />
-                  </Canvas>
-                </div>
-         </>
-      }
+      {(isDesktop || isTablet) && (
+        <>
+          {isDesktop && (<div className={styles.characterInfoBox}>{uiElement()}</div>) }
+          {isTablet && (<div className={styles.characterTabletName}>{activeCharacter.name}</div>) }
+          <div className={styles.threeCanvas}>
+            <Canvas
+              className={styles.Anim}
+              camera={{
+                position: [0, 20, 10],
+                fov: 50,
+                near: 0.1,
+                far: 1000,
+              }}
+            >
+              <ambientLight intensity={0.5} />
+              <AnimatedModel AimationURL={activeCharacter?.Anim} />
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                enableRotate={true}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={Math.PI / 2}
+                rotateSpeed={0.5}
+              />
+            </Canvas>
+          </div>
+        </>
+      )}
       <div
         className={styles.scrollableList}
         onMouseEnter={handleMouseEnter}

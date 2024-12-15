@@ -3,7 +3,7 @@ import styles from './header.module.css';
 import useWindowSize from './Hooks/useWindowSize';
 
 const Header = ({ currentSlide, onButtonClick }) => {
-  const isDesktop = useWindowSize(); 
+  const {isDesktop}= useWindowSize(); 
 
   return (
     <header className={styles.header}>
