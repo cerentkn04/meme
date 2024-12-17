@@ -122,7 +122,7 @@
     
     }
     .levelsContainer::-webkit-scrollbar {
-        display: none; /* Hides the scrollbar */
+        display: none; 
     }
 
 

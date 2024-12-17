@@ -26,19 +26,19 @@ const Header = ({ currentSlide, onButtonClick }) => {
             className={currentSlide === 1 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(1)}
           >
-            Character Information
+            Characters
           </button>
           <button
             className={currentSlide === 2 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(2)}
           >
-            Game Content
+            Game 
           </button>
           <button
             className={currentSlide === 3 ? styles.activeButton : styles.pageButton}
             onClick={() => onButtonClick(3)}
           >
-            Token Information
+            About 
           </button>
         </ul>
       )}
