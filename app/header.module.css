@@ -1,14 +1,16 @@
 
-.header {
-    position: fixed;
-    display: flex;
-    padding: 0%;
-    margin: 0%;
+.header 
+  {
+    background: url('/headeBG.jpeg') no-repeat center center;
+    background-size: 100% 100%; 
+    top: 0; 
+    left: 0;
     width: 100%;
-    height: 5vw;
+    height: 5vw; 
+    display: flex;
     align-items: center;
-    background-color: #1E1E24;
-    z-index: 100;
+    box-sizing: border-box;
+
   }
 
   .pageButton 
@@ -50,11 +52,11 @@
   @media (max-width: 949px) {
     .header 
     { 
+      
       width: 100%;
       display: flex;
       align-items:center;
       justify-content: space-around;
-      position: absolute;
       height: 5rem;
     }
     .Logo

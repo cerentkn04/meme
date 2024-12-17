@@ -10,11 +10,10 @@ const Layout = () => {
   const handleButtonClick = (slideIndex) => {
     setCurrentSlide(slideIndex);
   };
-
   return (
     <html>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
         <Header currentSlide={currentSlide} onButtonClick={handleButtonClick} />

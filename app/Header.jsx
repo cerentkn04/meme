@@ -3,7 +3,7 @@ import styles from './header.module.css';
 import useWindowSize from './Hooks/useWindowSize';
 
 const Header = ({ currentSlide, onButtonClick }) => {
-  const {isDesktop}= useWindowSize(); 
+  const {isDesktop,isTablet, isMobile}= useWindowSize(); 
 
   return (
     <header className={styles.header}>
@@ -14,7 +14,7 @@ const Header = ({ currentSlide, onButtonClick }) => {
         height={70} 
         className={styles.Logo}
       />
-      {isDesktop && (
+      {!(isTablet|| isMobile) && (
         <ul className={styles.ButtonContainer}>
           <button
             className={currentSlide === 0 ? styles.activeButton : styles.pageButton}

@@ -6,13 +6,13 @@ import levelGifs from "../Data/levelGifs";
 
 const Slide3 = () => {
   const [activeVid, setActiveVid] = useState(levelGifs[0]);
-  const isDesktop = useWindowSize();
+  const {isDesktop, isTablet} = useWindowSize();
 
   return (
     <>
       <div className={styles.Slide3}>
         <div className={styles.leftContainer}>
-          <div className={styles.leftContainerHead}>LEVELS:</div>
+        {(isDesktop) && <div className={styles.leftContainerHead}>LEVELS:</div>}
           <div
             className={styles.levelsContainer}
             onMouseEnter={() => {
@@ -35,13 +35,13 @@ const Slide3 = () => {
         </div>
 
         <div className={styles.level}>
-          {isDesktop && activeVid && (
+          {(isDesktop||isTablet) && activeVid && (
             <>
             <h3> {activeVid.name}</h3>
             <img  src={activeVid.gifPath} width="100%" height="auto" controls className={styles.levelVid}/>
             </>
           )}
-          {!isDesktop && <div>Mobile Version</div>} 
+          {!(isDesktop||isTablet)&& <div>Mobile Version</div>} 
         </div>
       </div>
     </>

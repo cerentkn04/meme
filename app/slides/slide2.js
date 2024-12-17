@@ -10,7 +10,7 @@ import { OrbitControls } from "@react-three/drei";
 const AnimatedModel = dynamic(() => import("./AnimatedModel"), { ssr: false });
 
 const Slide2 = () => {
-  const { isDesktop, isTablet } = useWindowSize();
+  const { isDesktop, isTablet,isMobile } = useWindowSize();
   const [activeCharacter, setActiveCharacter] = useState(characters[0] || {});
 
   const uiElement = () => {
@@ -38,7 +38,7 @@ const Slide2 = () => {
 
   return (
     <div className={styles.slide2}>
-      {(isDesktop || isTablet) && (
+      {!(isMobile) && (
         <>
           {isDesktop && (<div className={styles.characterInfoBox}>{uiElement()}</div>) }
           {isTablet && (<div className={styles.characterTabletName}>{activeCharacter.name}</div>) }
@@ -46,8 +46,8 @@ const Slide2 = () => {
             <Canvas
               className={styles.Anim}
               camera={{
-                position: [0, 20, 10],
-                fov: 50,
+                position: [0, 20, 15],
+                fov: 40,
                 near: 0.1,
                 far: 1000,
               }}
@@ -77,7 +77,7 @@ const Slide2 = () => {
             className={styles.characterButton}
             onClick={() => setActiveCharacter(character)}
           >
-            {character.name}
+           
           </button>
         ))}
       </div>

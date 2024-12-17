@@ -6,52 +6,86 @@
     justify-content: center;
     gap: 2rem;
 }
-@media (max-width:  999px)
+    
+.levelsContainer::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  .leftContainer
+  {
+      position: relative;
+      max-height: 20%;  
+      max-width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+  }
+  .levelsContainer
+    {
+      position: relative;
+      display: flex;
+      flex-direction: row; 
+      gap: 10px; 
+      overflow-x: auto; 
+      overflow-y: hidden;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 10px;
+      scrollbar-width: none; 
+    }
+     
+    .levelButton
+    {
+      min-width: 150px;
+      height: auto; 
+      margin-right: 10px; 
+    }
+  
+@media (max-width:  767px)
 {
-    .Slide3{
+    .Slide3
+    {
         display: flex;
         flex-direction:column-reverse;
-
     }
-    .leftContainer
+ 
+ 
+
+    .level
     {
-        position: relative;
-        border: #fdfdfd 2px solid;
-        max-height: 20%;  
-        max-width: 90%;
-        top: 3%;
-        right: 2%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .levelsContainer {
-        position: relative;
-       
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-y: auto;
-        overflow-x: hidden;
-    
-    }
-
-    .level {
         position: relative;
         max-height: 40%;
         max-width: 80%;
         background: transparent;
-        border: 3px #c83e4d solid;
-        
+        border: 3px #c83e4d solid;   
+    }
+
+}
+@media (min-width: 768px) and (max-width: 1000px)
+{
+    .Slide3{
+        position: relative; 
+        display: flex;
+        align-items: center;
+        flex-direction:column-reverse;
+        gap:10%;
+    }
+    .level
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5rem;
+        gap: 1rem;
+        width:80%;
+        height: auto;
     }
 
 }
 
-@media (min-width:  1000px)
+@media (min-width:  951px)
 {
 
     .leftContainer
