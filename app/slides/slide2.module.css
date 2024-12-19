@@ -84,10 +84,8 @@
 
  .Anim{
       position: relative;
-      width: 100%;
-      height: 90%;
-      top: 25%;
-      
+      height: 100%;
+      bottom:5%;
     }
     .characterTabletName{
       position: relative;
@@ -97,31 +95,63 @@
       font-size: 2.5rem;
       width: 60%;
       max-height:100px ;
-      top: 20%;
+      top: 8%;
     }
     .scrollableList {
       position: relative;
-      flex-direction: column;
-      max-width: 60%;
-      max-height: 30%;
-      gap:1rem;
-      bottom:9%;
+      display: flex;
+      bottom:15%;
+      flex-direction: row;
+      flex-wrap: nowrap; 
+      max-width: 90%;
+      max-height: 15%; 
+      gap: 1rem;
       overflow-x: auto; 
+      overflow-y: hidden;
+      scrollbar-width: thin; 
+      padding: 10px; 
       -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 90%, transparent);
-      mask-image: linear-gradient(to left, transparent, black 30%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 30%, black 90%, transparent);
       background-color: rgba(255, 255, 255, 0);
     }
-
-  .characterButton
-  {   
-      width: 11vw;
+  
+    .scrollableList::-webkit-scrollbar {
+      height: 8px; /* Horizontal scrollbar height */
+    }
+  
+    .scrollableList::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 10px;
+    }
+  
+    .scrollableList::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+  
+    .characterButton {
+      width: 11vw; /* Adjust size for tablet */
       height: 15vw;
-  }
-
+      flex-shrink: 0; /* Prevent shrinking of buttons */
+    }
 }
 @media (min-width: 1025px) 
 {
- 
+  .slide2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden; 
+  }
+
+  .Anim {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+  }
+
   .scrollableList
     {
       display: flex;
@@ -142,7 +172,6 @@
       -webkit-mask-image: linear-gradient(to top, transparent, black 30%, black 90%, transparent);
       mask-image: linear-gradient(to bottom, transparent, black 30%, black 90%, transparent);
       background-color: rgba(255, 255, 255, 0);
-     
       padding-block: 2rem;
   }
     .characterInfoBox
@@ -162,17 +191,6 @@
       display: flex;
       flex-direction: column;
     }
-
-    .gltfScene
-    {
-      width: 300px;
-      height: auto;
-    }
-    .Anim
-    {
-      position: relative;
-      top: 25%;
-      height: 80%;
-    }
+    
  
 }

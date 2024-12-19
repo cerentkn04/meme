@@ -12,7 +12,7 @@ const AnimatedModel = dynamic(() => import("./AnimatedModel"), { ssr: false });
 const Slide2 = () => {
   const { isDesktop, isTablet,isMobile } = useWindowSize();
   const [activeCharacter, setActiveCharacter] = useState(characters[0] || {});
-
+  const fov = isDesktop ? 40 : isTablet ? 35 : 25;
   const uiElement = () => {
     if (!activeCharacter) {
       return <div></div>;
@@ -42,18 +42,26 @@ const Slide2 = () => {
         <>
           {isDesktop && (<div className={styles.characterInfoBox}>{uiElement()}</div>) }
           {isTablet && (<div className={styles.characterTabletName}>{activeCharacter.name}</div>) }
-          <div className={styles.threeCanvas}>
+        
             <Canvas
-              className={styles.Anim}
+              className={styles.Anim} 
               camera={{
-                position: [0, 20, 15],
-                fov: 40,
-                near: 0.1,
+                position: [0, 30, 10],
+                fov: fov,
+                near: 0.9,
                 far: 1000,
               }}
             >
-              <ambientLight intensity={0.5} />
-              <AnimatedModel AimationURL={activeCharacter?.Anim} />
+                
+            <AnimatedModel 
+              AnimationURL={activeCharacter?.Anim} 
+              className={styles.Anim}
+              textureURLs={[
+                activeCharacter.Texture1,
+                activeCharacter.Texture2,
+                activeCharacter.Texture3,
+              ]}
+            />
               <OrbitControls
                 enableZoom={false}
                 enablePan={false}
@@ -61,9 +69,10 @@ const Slide2 = () => {
                 maxPolarAngle={Math.PI / 2}
                 minPolarAngle={Math.PI / 2}
                 rotateSpeed={0.5}
+                target={[0, 4, 0]}
               />
             </Canvas>
-          </div>
+       
         </>
       )}
       <div

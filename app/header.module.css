@@ -15,12 +15,14 @@
 
   .pageButton 
   { 
+    position: relative;
     font-size: 1.5vw;
     color: #F7EBE8;
+   
     background: none;
     padding: 0;
     max-height: 100%;
-    margin-inline: 2vw;
+    width: 10vw;
     cursor: pointer;
   }
   
@@ -44,8 +46,8 @@
     background-position: 100%;
     background-size: 400%;
     animation: activeButtonAnimation 0.6s ease-in-out forwards; 
-    margin-inline: 2vw;
     width: 10vw;
+
 
 }
 
