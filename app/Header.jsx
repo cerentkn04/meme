@@ -14,7 +14,7 @@ const Header = ({ currentSlide, onButtonClick }) => {
         height={70} 
         className={styles.Logo}
       />
-      {!(isTablet|| isMobile) && (
+      { isDesktop && (
         <ul className={styles.ButtonContainer}>
           <button
             className={currentSlide === 0 ? styles.activeButton : styles.pageButton}

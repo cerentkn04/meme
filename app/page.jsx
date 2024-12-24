@@ -10,7 +10,8 @@ import Slide3 from "./slides/slide3"
 
 export default function Page({ currentSlide, setCurrentSlide }) {
   const swiperRef = useRef(null);
-  const swiperStyle = {
+  const swiperStyle =
+  {
     height: "100vh",
     width: "100%",
     display: "flex",

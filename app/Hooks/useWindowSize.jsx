@@ -8,8 +8,8 @@ const useWindowSize = () => {
   
     if (typeof window !== 'undefined') {
       const handleResize = () => {
-        setIsDesktop(window.innerWidth >= 1025);
-        setIsTablet( window.innerWidth <950 && window.innerWidth >= 768)
+        setIsDesktop(window.innerWidth >= 1080);
+        setIsTablet( window.innerWidth <1080 && window.innerWidth >= 768)
         setIsMobile(window.innerWidth < 768)
       };
 

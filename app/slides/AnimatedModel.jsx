@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect,useState } from "react";
 import { useGLTF } from "@react-three/drei";
-import { AnimationMixer, LoopRepeat } from "three";
+import { AnimationMixer, LoopRepeat,LoopOnce} from "three";
 import * as THREE from "three";
 
 const AnimatedModel = ({ AnimationURL, textureURLs }) => {
@@ -30,21 +30,28 @@ const AnimatedModel = ({ AnimationURL, textureURLs }) => {
   
     const playNextAnimation = () => {
       mixer.stopAllAction(); 
-  
+    
       const clip = animations[currentAnimationIndex];
       const action = mixer.clipAction(clip);
-  
+    
       if (action) {
         console.log(`Playing animation: ${clip.name}`);
         action.reset();
-        action.setLoop(LoopRepeat, 1); 
-        action.clampWhenFinished = true;
+    
+        
+        if (currentAnimationIndex === 0) {
+          action.setLoop(LoopOnce); 
+        } else {
+          action.setLoop(LoopRepeat, Infinity); 
+        }
+    
+        action.clampWhenFinished = true; 
         action.play();
       } else {
         console.error(`Failed to create action for animation index ${currentAnimationIndex}`);
       }
     };
-  
+    
     playNextAnimation();
   
     
@@ -54,24 +61,6 @@ const AnimatedModel = ({ AnimationURL, textureURLs }) => {
       }
     };
     mixer.addEventListener('finished', onFinished);
-  
-    
-    const [headTexture, bodyTexture, accessoriesTexture] = textureURLs.map((url) =>
-      textureLoader.load(url)
-    );
-  
-    scene.traverse((node) => {
-      if (node.isMesh) {
-        if (node.name.includes("Head")) {
-          node.material.map = headTexture;
-        } else if (node.name.includes("Body")) {
-          node.material.map = bodyTexture;
-        } else if (node.name.includes("Accessories")) {
-          node.material.map = accessoriesTexture;
-        }
-        node.material.needsUpdate = true;
-      }
-    });
   
     const animate = () => {
       const delta = clock.current.getDelta();
@@ -89,7 +78,6 @@ const AnimatedModel = ({ AnimationURL, textureURLs }) => {
     };
   }, [animations, scene, textureURLs, currentAnimationIndex]);
   
-
 
  return (
     <>

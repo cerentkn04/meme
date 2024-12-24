@@ -1,7 +1,5 @@
 @tailwind base;
 @tailwind components;
-
-
 :root {
   --background: #ffffff;
   --foreground: #171717;

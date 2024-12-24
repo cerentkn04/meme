@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./slide2.module.css";
 import characters from "../Data/characters";
 import useWindowSize from "../Hooks/useWindowSize";
@@ -10,9 +10,15 @@ import { OrbitControls } from "@react-three/drei";
 const AnimatedModel = dynamic(() => import("./AnimatedModel"), { ssr: false });
 
 const Slide2 = () => {
-  const { isDesktop, isTablet,isMobile } = useWindowSize();
+  const { isDesktop, isTablet, isMobile } = useWindowSize();
   const [activeCharacter, setActiveCharacter] = useState(characters[0] || {});
+  const [playAnimation, setPlayAnimation] = useState(false);
   const fov = isDesktop ? 40 : isTablet ? 35 : 25;
+
+  useEffect(() => {
+    // Stop animation when component unmounts
+    return () => setPlayAnimation(false);
+  }, []);
   const uiElement = () => {
     if (!activeCharacter) {
       return <div></div>;
@@ -36,45 +42,53 @@ const Slide2 = () => {
     swiperInstance?.mousewheel?.enable?.();
   };
 
+  const handleCharacterClick = (character) => {
+    if (activeCharacter !== character) {
+      setPlayAnimation(false);
+      setActiveCharacter(character);
+      // Small delay to ensure the animation restarts
+      setTimeout(() => setPlayAnimation(true), 50);
+    } else {
+      // Toggle animation for the same character
+      setPlayAnimation(!playAnimation);
+    }
+  };
+
   return (
     <div className={styles.slide2}>
-      {!(isMobile) && (
+      {!isMobile && (
         <>
-          {isDesktop && (<div className={styles.characterInfoBox}>{uiElement()}</div>) }
-          {isTablet && (<div className={styles.characterTabletName}>{activeCharacter.name}</div>) }
-        
-            <Canvas
-              className={styles.Anim} 
-              camera={{
-                position: [0, 30, 10],
-                fov: fov,
-                near: 0.9,
-                far: 1000,
-              }}
-            >
-                
+          {isDesktop && <div className={styles.characterInfoBox}>{uiElement()}</div>}
+          {isTablet && <div className={styles.characterTabletName}>{activeCharacter.name}</div>}
+
+          <Canvas
+            className={styles.Anim} 
+            camera={{
+              position: [0, 30, 10],
+              fov: fov,
+              near: 0.9,
+              far: 1000,
+            }}
+          >
             <AnimatedModel 
               AnimationURL={activeCharacter?.Anim} 
               className={styles.Anim}
-              textureURLs={[
-                activeCharacter.Texture1,
-                activeCharacter.Texture2,
-                activeCharacter.Texture3,
-              ]}
+              playAnimation={playAnimation}
+              textureURLs={activeCharacter?.textures}
             />
-              <OrbitControls
-                enableZoom={false}
-                enablePan={false}
-                enableRotate={true}
-                maxPolarAngle={Math.PI / 2}
-                minPolarAngle={Math.PI / 2}
-                rotateSpeed={0.5}
-                target={[0, 4, 0]}
-              />
-            </Canvas>
-       
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
+              enableRotate={true}
+              maxPolarAngle={Math.PI / 2}
+              minPolarAngle={Math.PI / 2}
+              rotateSpeed={0.5}
+              target={[0, 4, 0]}
+            />
+          </Canvas>
         </>
       )}
+
       <div
         className={styles.scrollableList}
         onMouseEnter={handleMouseEnter}
@@ -83,10 +97,10 @@ const Slide2 = () => {
         {characters.map((character, index) => (
           <button
             key={index}
-            className={styles.characterButton}
-            onClick={() => setActiveCharacter(character)}
+            className={`${styles.characterButton} ${activeCharacter.name === character.name ? styles.activeButton : ''}`}
+            onClick={() => handleCharacterClick(character)}
           >
-           
+            {character.name}
           </button>
         ))}
       </div>
