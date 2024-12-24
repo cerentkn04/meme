@@ -18,7 +18,7 @@ const Slide3 = () => {
 
       <div className={styles.Slide3}>
         <div className={styles.leftContainer}>
-          {isDesktop && <div className={styles.leftContainerHead}>LEVELS:</div>}
+          
           <div
             className={styles.levelsContainer}
             onMouseEnter={() => {
